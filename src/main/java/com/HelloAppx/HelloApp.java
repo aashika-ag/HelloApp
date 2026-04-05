@@ -2,21 +2,22 @@ package com.HelloAppx;
 public class HelloApp {
 
     public static void main(String[] args) {
-        String name = "World";
+        String finalName = "World";
 
         if (args.length > 0) {
             StringBuilder nameBuilder = new StringBuilder();
+            boolean first = true;
 
-            for (int i = 0; i < args.length; i++) {
-                nameBuilder.append(args[i]);
-
-                if (i < args.length - 1) {
+            for (String name : args) {
+                if (!first) {
                     nameBuilder.append(", ");
                 }
+                nameBuilder.append(name);
+                first = false;
             }
-            name = nameBuilder.toString();
+            finalName = nameBuilder.toString();
         }
 
-        System.out.println("Hello, " + name + "!");
+        System.out.println("Hello, " + finalName + "!");
     }
 }
